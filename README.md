@@ -20,9 +20,6 @@ Find and replace these placeholders across the folder:
 |------------------|-----------------------------------------|
 | `[CHECKOUT_URL]` | `buy/index.html` only (Lemon Squeezy or Polar link) |
 | `[DOMAIN]`       | canonical and Open Graph tags           |
-| `[EMAIL]`        | footer contact link and legal pages     |
-| `[YEAR]`         | footer copyright                        |
-| `[DATE]`         | "Last updated" on the legal pages       |
 
 Every Buy button links to `buy/`, which redirects to `[CHECKOUT_URL]`, so the checkout link is set in one file and works without JavaScript.
 
