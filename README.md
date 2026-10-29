@@ -32,8 +32,8 @@ The legal pages are plain-language starting points, not legal advice.
 
 ## Deploy
 
-Publish this folder as the site root. No build command is needed.
+Publish the repo root as the site. No build command is needed.
 
-- **Netlify / Cloudflare Pages:** publish directory `website`
-- **Vercel:** framework preset "Other", output directory `website`
-- **GitHub Pages:** serve from this folder with a custom domain. The favicon and 404 paths are root-relative (`/favicon.ico`), so a `username.github.io/repo/` project URL would break them.
+- **Netlify / Cloudflare Pages:** publish directory `/` (repo root), no build command
+- **Vercel:** framework preset "Other", output directory `.`
+- **GitHub Pages:** serve from the `main` branch root with a custom domain. The favicon and 404 paths are root-relative (`/favicon.ico`), so a `username.github.io/repo/` project URL would break them.
