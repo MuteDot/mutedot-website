@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>MuteDot: never get caught on a hot mic</title>
+  <meta name="description" content="One hotkey mutes every microphone. A tiny dot shows if you're live. $6 once for Windows and Linux.">
+  <link rel="canonical" href="https://[DOMAIN]/">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#110F14">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://[DOMAIN]/">
+  <meta property="og:title" content="MuteDot: never get caught on a hot mic">
+  <meta property="og:description" content="One hotkey mutes every microphone. A tiny dot shows if you're live.">
+  <meta property="og:image" content="https://[DOMAIN]/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Sora:wght@600;700&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3" fill="none"/><path d="M5 11a7 7 0 0 0 14 0" fill="none"/><path d="M12 18v3.5" fill="none"/></symbol>
+    <symbol id="i-mic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3" fill="none"/><path d="M5 11a7 7 0 0 0 14 0" fill="none"/><path d="M12 18v3.5" fill="none"/><path d="M3.5 3.5l17 17" fill="none"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none"/></symbol>
+    <symbol id="i-ptt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3" fill="none"/><path d="M12 9.5v5" fill="none"/><path d="M9.5 12.5 12 15l2.5-2.5" fill="none"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z" fill="none"/><path d="M15.5 9a4 4 0 0 1 0 6" fill="none"/><path d="M18 6.5a7.5 7.5 0 0 1 0 11" fill="none"/></symbol>
+    <symbol id="i-sync" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-14 5.3" fill="none"/><path d="M4 12a8 8 0 0 1 14-5.3" fill="none"/><path d="M18 3v4h-4" fill="none"/><path d="M6 21v-4h4" fill="none"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2.5" fill="none"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none"/></symbol>
+    <symbol id="i-tray" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3" fill="none"/><path d="M3 15.5h18" fill="none"/><circle cx="16.5" cy="17.8" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-term" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3" fill="none"/><path d="m7.5 9.5 3 2.5-3 2.5" fill="none"/><path d="M12.5 15h4" fill="none"/></symbol>
+  </svg>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="nav__logo" href="./"><img src="logo/svg/mutedot-lockup-color-on-dark.svg" alt="MuteDot home" width="153" height="28"></a>
+      <nav aria-label="Main">
+        <ul class="nav__links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--sm" href="buy/">Buy MuteDot</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="band band--ink hero" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <h1 id="hero-title">Never get caught on a <span class="hot">hot mic.</span></h1>
+          <p class="hero__sub">One hotkey mutes every microphone. A tiny dot shows if you're live.</p>
+          <div class="hero__buy">
+            <a class="btn btn--lg" href="buy/">Buy for $6</a>
+            <p class="fine">One-time purchase · Windows · Linux</p>
+          </div>
+        </div>
+
+        <div class="stage">
+          <p class="sr-only">Demo: the MuteDot indicator shows LIVE in green. Pressing Ctrl, Shift and M flips it to MUTED in red.</p>
+          <div class="orb" aria-hidden="true"></div>
+          <div class="window" aria-hidden="true">
+            <div class="window__bar"><div class="lights"><i></i><i></i><i></i></div><span class="window__title">MuteDot</span></div>
+            <div class="demo">
+              <div class="demo__pills">
+                <span class="ind ind--live"><span class="ind__icon"><svg><use href="#i-mic"/></svg></span>LIVE</span>
+                <span class="ind ind--muted"><span class="ind__icon"><svg><use href="#i-mic-off"/></svg></span>MUTED</span>
+              </div>
+              <div class="keys"><span class="key">Ctrl</span><span class="key">Shift</span><span class="key key--hot">M</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Every mic -->
+    <section class="band band--paper" aria-labelledby="every-title">
+      <div class="wrap split">
+        <div class="split__copy">
+          <h2 class="h2" id="every-title">Mutes every mic, not just one.</h2>
+          <p>Every call app has its own mute button, and none of them agree with each other or with your computer. That's how people get caught talking on a "muted" call.</p>
+          <p>MuteDot skips the apps and mutes the microphones themselves, at the system level. If a call app quietly picks a different mic, it gets silence too.</p>
+          <div class="keys">
+            <span class="key">Ctrl</span><span class="key">Shift</span><span class="key key--hot">M</span>
+            <span class="keys__note">or any keys you like</span>
+          </div>
+        </div>
+
+        <div class="stage mics">
+          <div class="orb" aria-hidden="true"></div>
+          <div class="window window--light">
+            <div class="window__bar" aria-hidden="true"><div class="lights"><i></i><i></i><i></i></div><span class="window__title">Microphones</span></div>
+            <div class="mics__head">
+              <span class="mics__icon" aria-hidden="true"><svg><use href="#i-mic-off"/></svg></span>
+              <div><b>You're muted</b><span>Every microphone is silenced</span></div>
+            </div>
+            <ul class="mics__list">
+              <li>Built-in Microphone <span class="tag-muted">MUTED</span></li>
+              <li>USB Headset <span class="tag-muted">MUTED</span></li>
+              <li>Webcam Microphone <span class="tag-muted">MUTED</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Indicator styles -->
+    <section class="band band--ink" aria-labelledby="live-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="h2" id="live-title">Always know if you're <span class="hot">live.</span></h2>
+          <p class="lead">A small indicator floats above every window. Green means they can hear you. Red means they can't. Pick the size that suits your screen.</p>
+        </div>
+        <div class="styles">
+          <article class="style-card">
+            <div class="style-card__show" aria-hidden="true">
+              <div class="dot-pair"><span class="ind-dot"></span><span class="ind-dot ind-dot--muted"></span></div>
+            </div>
+            <div><h3>Dot</h3><p>Just the dot. Quiet in a corner, obvious at a glance.</p></div>
+          </article>
+          <article class="style-card">
+            <div class="style-card__show" aria-hidden="true">
+              <span class="ind ind--sm ind--live"><span class="ind__icon"><svg><use href="#i-mic"/></svg></span>LIVE</span>
+              <span class="ind ind--sm ind--muted"><span class="ind__icon"><svg><use href="#i-mic-off"/></svg></span>MUTED</span>
+            </div>
+            <div><h3>Pill</h3><p>The dot plus a word, so there's no second-guessing.</p></div>
+          </article>
+          <article class="style-card">
+            <div class="style-card__show" aria-hidden="true">
+              <span class="ind ind--lg ind--live"><span class="ind__icon"><svg><use href="#i-mic"/></svg></span>LIVE</span>
+              <span class="ind ind--lg ind--muted"><span class="ind__icon"><svg><use href="#i-mic-off"/></svg></span>MUTED</span>
+            </div>
+            <div><h3>Large</h3><p>A big badge for streams, podcasts and anyone who forgets.</p></div>
+          </article>
+        </div>
+        <ul class="extras">
+          <li>Drag it next to your webcam</li>
+          <li>Lock it so clicks pass straight through</li>
+          <li>Show it only while you're live</li>
+          <li>Shows TALKING during push-to-talk</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="band band--orange" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section-head">
+          <img class="features__logo" src="logo/svg/mutedot-lockup-ink-on-orange.svg" alt="MuteDot" width="186" height="34">
+          <h2 class="h2" id="features-title">Small app. No loose ends.</h2>
+          <p class="lead">Everything a mute button should have done in the first place.</p>
+        </div>
+        <div class="grid6">
+          <article class="feature">
+            <svg aria-hidden="true"><use href="#i-ptt"/></svg>
+            <h3>Push-to-talk</h3>
+            <p>Hold a key to talk while muted. Let go and you're muted again.</p>
+          </article>
+          <article class="feature">
+            <svg aria-hidden="true"><use href="#i-sound"/></svg>
+            <h3>Sound cues</h3>
+            <p>A falling chime when you mute, a rising one when you're live. No looking required.</p>
+          </article>
+          <article class="feature">
+            <svg aria-hidden="true"><use href="#i-sync"/></svg>
+            <h3>Always in sync</h3>
+            <p>Press the mute button on your headset or flip it in system settings. MuteDot catches up within half a second.</p>
+          </article>
+          <article class="feature">
+            <svg aria-hidden="true"><use href="#i-lock"/></svg>
+            <h3>Click-through lock</h3>
+            <p>Lock the indicator and clicks pass straight through to whatever's underneath.</p>
+          </article>
+          <article class="feature">
+            <svg aria-hidden="true"><use href="#i-tray"/></svg>
+            <h3>Lives in your system tray</h3>
+            <p>Out of the way in the tray, and it starts when you log in.</p>
+          </article>
+          <article class="feature">
+            <svg aria-hidden="true"><use href="#i-term"/></svg>
+            <h3>Scriptable</h3>
+            <p><code>mutedot --toggle</code>, <code>--mute</code>, <code>--unmute</code> and <code>--status</code> for Stream Deck and custom shortcuts.</p>
+          </article>
+        </div>
+        <ul class="facts">
+          <li>About 5 MB</li>
+          <li>No account</li>
+          <li>No telemetry</li>
+          <li>No internet needed</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Works with everything -->
+    <section class="band band--paper band--tight" aria-labelledby="works-title">
+      <div class="wrap works">
+        <h2 class="h2" id="works-title">Works with everything.</h2>
+        <p class="works__apps">Zoom · Microsoft Teams · Google Meet · Discord · Slack · OBS · <span>and anything else that uses a mic.</span></p>
+        <p class="lead">It mutes the mic itself, so there's nothing for an app to ignore.</p>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="band band--paper" id="pricing" aria-labelledby="pricing-title" data-flush>
+      <div class="wrap">
+        <div class="section-head section-head--center">
+          <h2 class="h2" id="pricing-title">$6. Once. <span class="hot">Yours.</span></h2>
+          <p class="lead">No subscription and no trial. The 30-day money-back guarantee has you covered instead.</p>
+        </div>
+        <div class="price stage">
+          <div class="orb" aria-hidden="true"></div>
+          <div class="window window--light">
+            <div class="window__bar" aria-hidden="true"><div class="lights"><i></i><i></i><i></i></div><span class="window__title">Checkout</span></div>
+            <div class="price__body">
+              <p class="price__name">MuteDot</p>
+              <p class="price__amount"><b>$6</b><span>once</span></p>
+              <ul class="checks">
+                <li><svg aria-hidden="true"><use href="#i-check"/></svg>Use it on all your own computers</li>
+                <li><svg aria-hidden="true"><use href="#i-check"/></svg>All v1 updates included</li>
+                <li><svg aria-hidden="true"><use href="#i-check"/></svg>30-day money-back guarantee</li>
+                <li><svg aria-hidden="true"><use href="#i-check"/></svg>No account, no subscription, no license key</li>
+              </ul>
+              <a class="btn btn--lg btn--block" href="buy/">Buy MuteDot</a>
+              <p class="platforms">Windows 10/11 · Linux (X11 and Wayland)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="band band--paper" id="faq" aria-labelledby="faq-title" data-flush>
+      <div class="wrap">
+        <div class="section-head section-head--center">
+          <h2 class="h2" id="faq-title">Questions, answered.</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Does it work with Zoom, Teams, Meet and Discord?</summary>
+            <p>Yes. MuteDot mutes the microphone itself, so every app hears silence, including ones that aren't on that list.</p>
+          </details>
+          <details>
+            <summary>What if my call app says I'm unmuted?</summary>
+            <p>Let it. The app's own button doesn't know about MuteDot, but nothing gets through. Trust the dot.</p>
+          </details>
+          <details>
+            <summary>Does it need internet or an account?</summary>
+            <p>No. There's no account, no license key and no telemetry. It works completely offline.</p>
+          </details>
+          <details>
+            <summary>How many computers can I use it on?</summary>
+            <p>All of your own. Buy once, download, and install it on every computer you use.</p>
+          </details>
+          <details>
+            <summary>Does it work on Linux and Wayland?</summary>
+            <p>Yes, on both X11 and Wayland. Wayland doesn't let apps grab global keys, so you bind <code>mutedot --toggle</code> to a key in your desktop's settings. Push-to-talk isn't available on Wayland.</p>
+          </details>
+          <details>
+            <summary>Can I get a refund?</summary>
+            <p>Yes. Within 30 days, no questions asked. See the <a href="refunds/">refund policy</a>.</p>
+          </details>
+          <details>
+            <summary>Is there a free trial?</summary>
+            <p>No. The 30-day money-back guarantee covers you instead. If MuteDot isn't for you, you get your $6 back.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__brand">
+        <img src="logo/svg/mutedot-lockup-color-on-dark.svg" alt="MuteDot" width="142" height="26">
+        <small>© [YEAR] Aubergine-UX</small>
+      </div>
+      <ul class="footer__links">
+        <li><a href="privacy/">Privacy</a></li>
+        <li><a href="terms/">Terms</a></li>
+        <li><a href="refunds/">Refunds</a></li>
+        <li><a href="mailto:[EMAIL]">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
