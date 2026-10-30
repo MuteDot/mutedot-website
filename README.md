@@ -29,7 +29,7 @@
 |---|---|
 | `index.html` | Landing page. The hero demo is pure CSS. |
 | `privacy/` · `terms/` · `refunds/` | Legal pages |
-| `buy/index.html` | Redirects to checkout. It's the only place the checkout link lives. |
+| `buy/index.html` | Short link (`mutedot.xyz/buy/`) that redirects to checkout |
 | `404.html` | Not-found page |
 | `css/site.css` | Every style on the site |
 | `logo/svg/` | Lockups from the brand kit, unchanged |
@@ -71,14 +71,14 @@ Type: **Sora** for headings, **Inter** for body text, **JetBrains Mono** for key
 
 ## ✦ Before you launch
 
-The domain is **mutedot.xyz**, set in `CNAME` and used in the canonical and Open Graph tags.
-One placeholder is left:
+No placeholders are left.
 
-| Placeholder | Where |
-|---|---|
-| `[CHECKOUT_URL]` | `buy/index.html` only (Lemon Squeezy or Polar link) |
+| Setting | Value | Where |
+|---|---|---|
+| Domain | **mutedot.xyz** | `CNAME`, plus the canonical and Open Graph tags |
+| Checkout | [Lemon Squeezy](https://mutedot.lemonsqueezy.com/checkout/buy/5e4ba5b7-3cd9-493f-b8fe-c976cc8fae09) | Every Buy button, and the `buy/` redirect |
 
-Every Buy button links to `buy/`, which redirects to `[CHECKOUT_URL]`. That way the checkout link is set in one file and works without JavaScript.
+If the checkout link changes, find and replace it across the folder.
 
 > [!WARNING]
 > `og-image.png`, along with the Product Hunt images in the brand kit, still says "macOS · Windows · Linux".
