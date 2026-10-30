@@ -71,12 +71,12 @@ Type: **Sora** for headings, **Inter** for body text, **JetBrains Mono** for key
 
 ## ✦ Before you launch
 
-Find and replace these placeholders across the folder:
+The domain is **mutedot.xyz**, set in `CNAME` and used in the canonical and Open Graph tags.
+One placeholder is left:
 
 | Placeholder | Where |
 |---|---|
 | `[CHECKOUT_URL]` | `buy/index.html` only (Lemon Squeezy or Polar link) |
-| `[DOMAIN]` | Canonical and Open Graph tags |
 
 Every Buy button links to `buy/`, which redirects to `[CHECKOUT_URL]`. That way the checkout link is set in one file and works without JavaScript.
 
@@ -97,7 +97,7 @@ Publish the repo root as the site. No build command is needed.
 |---|---|
 | **Netlify / Cloudflare Pages** | Publish directory `/` (repo root), no build command |
 | **Vercel** | Framework preset "Other", output directory `.` |
-| **GitHub Pages** | Serve from the `main` branch root with a custom domain |
+| **GitHub Pages** | Serve from the `main` branch root. `CNAME` already sets the custom domain. |
 
 The favicon and 404 paths are root-relative (`/favicon.ico`), so a `username.github.io/repo/` project URL would break them. Use a custom domain.
 
