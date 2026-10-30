@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>MuteDot: never get caught on a hot mic</title>
-  <meta name="description" content="One hotkey mutes every microphone. A tiny dot shows if you're live. $6 once for Windows and Linux.">
+  <title>MuteDot: mute your mic with one hotkey on Windows and Linux</title>
+  <meta name="description" content="A global mute shortcut for every microphone. Ctrl+Shift+M mutes your mic in Zoom, Teams, Meet and Discord, and an on-screen dot shows if you're live. $6, once.">
   <link rel="canonical" href="https://mutedot.xyz/">
 
   <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -13,17 +13,48 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#110F14">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MuteDot">
   <meta property="og:url" content="https://mutedot.xyz/">
   <meta property="og:title" content="MuteDot: never get caught on a hot mic">
-  <meta property="og:description" content="One hotkey mutes every microphone. A tiny dot shows if you're live.">
+  <meta property="og:description" content="One hotkey mutes every microphone. A small indicator shows if you're live. For Windows and Linux.">
   <meta property="og:image" content="https://mutedot.xyz/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MuteDot: never get caught on a hot mic. A LIVE and a MUTED indicator with the Ctrl Shift M shortcut.">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Sora:wght@600;700&display=swap">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "MuteDot",
+        "url": "https://mutedot.xyz/"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "MuteDot",
+        "url": "https://mutedot.xyz/",
+        "image": "https://mutedot.xyz/og-image.png",
+        "description": "A global mute shortcut that mutes every microphone on your computer, with an always-on-top indicator that shows whether you're live.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows 10, Windows 11, Linux",
+        "softwareVersion": "0.1.0",
+        "offers": {
+          "@type": "Offer",
+          "price": "6.00",
+          "priceCurrency": "USD",
+          "url": "https://mutedot.lemonsqueezy.com/checkout/buy/5e4ba5b7-3cd9-493f-b8fe-c976cc8fae09"
+        },
+        "publisher": { "@type": "Organization", "name": "Aubergine-UX" }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
@@ -270,7 +301,7 @@
           </details>
           <details>
             <summary>Does it work on Linux and Wayland?</summary>
-            <p>Yes, on both X11 and Wayland. Wayland doesn't let apps grab global keys, so you bind <code>mutedot --toggle</code> to a key in your desktop's settings. Push-to-talk isn't available on Wayland.</p>
+            <p>Yes, on both X11 and Wayland. Wayland doesn't let apps grab global keys, so you bind <code>mutedot --toggle</code> to a key in your desktop's settings. Push-to-talk isn't available on Wayland. The <a href="linux/">Linux guide</a> has the steps.</p>
           </details>
           <details>
             <summary>Can I get a refund?</summary>
@@ -293,6 +324,8 @@
         <small>© 2026 Aubergine-UX and 523co</small>
       </div>
       <ul class="footer__links">
+        <li><a href="windows/">Windows guide</a></li>
+        <li><a href="linux/">Linux guide</a></li>
         <li><a href="privacy/">Privacy</a></li>
         <li><a href="terms/">Terms</a></li>
         <li><a href="refunds/">Refunds</a></li>

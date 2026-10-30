@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mute your mic with a keyboard shortcut on Windows · MuteDot</title>
+  <meta name="description" content="Windows has no shortcut that mutes every microphone. What's built in, the mute shortcuts for Zoom, Teams, Meet and Discord, and how to mute every mic with one key.">
+  <link rel="canonical" href="https://mutedot.xyz/windows/">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#110F14">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MuteDot">
+  <meta property="og:url" content="https://mutedot.xyz/windows/">
+  <meta property="og:title" content="Mute your mic with a keyboard shortcut on Windows">
+  <meta property="og:description" content="What's built into Windows, the shortcuts in each call app, and how to mute every mic with one key.">
+  <meta property="og:image" content="https://mutedot.xyz/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav nav--light">
+    <div class="wrap">
+      <a class="nav__logo" href="../"><img src="../logo/svg/mutedot-lockup-color.svg" alt="MuteDot home" width="153" height="28"></a>
+      <nav aria-label="Main">
+        <ul class="nav__links">
+          <li><a href="../#features">Features</a></li>
+          <li><a href="../#pricing">Pricing</a></li>
+          <li><a href="../#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--sm" href="https://mutedot.lemonsqueezy.com/checkout/buy/5e4ba5b7-3cd9-493f-b8fe-c976cc8fae09">Buy MuteDot</a>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <article class="legal">
+      <h1>Mute your microphone with a keyboard shortcut on Windows</h1>
+      <p class="updated">For Windows 10 and 11 · Updated October 2026</p>
+      <p>Windows doesn't come with a shortcut that mutes your microphone everywhere. This page covers what Windows does have, the shortcuts built into the common call apps, and how to mute every microphone on your PC with one key.</p>
+
+      <h2>What Windows has built in</h2>
+      <p>Windows 11 has <kbd>Win</kbd> + <kbd>Alt</kbd> + <kbd>K</kbd>. It only works in call apps that support it, such as Microsoft Teams, and only while you're in a call. Windows 10 has no mute shortcut at all.</p>
+      <p>You can also turn microphone access off in Settings, under Privacy &amp; security → Microphone on Windows 11, or Privacy → Microphone on Windows 10. That takes several clicks each time, and it's easy to forget to turn it back on before your next call.</p>
+
+      <h2>Mute shortcuts in call apps</h2>
+      <p>Each call app has its own shortcut:</p>
+      <div class="table">
+        <table>
+          <thead><tr><th>App</th><th>Mute / unmute</th></tr></thead>
+          <tbody>
+            <tr><td>Zoom</td><td><kbd>Alt</kbd> + <kbd>A</kbd></td></tr>
+            <tr><td>Microsoft Teams</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd></td></tr>
+            <tr><td>Google Meet</td><td><kbd>Ctrl</kbd> + <kbd>D</kbd></td></tr>
+            <tr><td>Discord</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd></td></tr>
+            <tr><td>Slack huddles</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>These have three problems. They're all different. Most only work while that app's window is in front. And each one only mutes you in that app, so if another app is also using your mic, it still hears you.</p>
+
+      <h2>Mute every microphone with one shortcut</h2>
+      <p>MuteDot mutes the microphones themselves instead of muting you inside one app. It uses the same per-device mute switch as the Windows sound settings, and flips it on every microphone at once: the built-in mic, a USB or Bluetooth headset, and the mic in your webcam. Every app then gets silence.</p>
+      <ol>
+        <li>Buy MuteDot, download the Windows installer and run it.</li>
+        <li>MuteDot starts in the system tray and puts a small indicator on screen. It's green with LIVE when your mic is on.</li>
+        <li>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>. Every mic is muted, the indicator turns red with MUTED, and you hear a short chime.</li>
+        <li>Press it again to go live.</li>
+      </ol>
+      <p>MuteDot also notices when something else changes the mute state, like the mute button on your headset or the Windows sound settings, and updates the indicator within half a second.</p>
+
+      <h3>Change the shortcut</h3>
+      <p>Right-click the indicator to open Settings. Under Shortcuts, click the current shortcut and press the keys you want. Letter, number and space keys need Ctrl, Alt or Shift with them. Keys like F9 or Pause can be used on their own.</p>
+
+      <h3>Push-to-talk</h3>
+      <p>In the same section, set a push-to-talk key. Hold it to talk while you're muted, and let go to mute again. The indicator shows TALKING while you hold it.</p>
+
+      <h3>Start it with Windows</h3>
+      <p>Turn on Launch at login under General, so MuteDot is running before your first call of the day.</p>
+
+      <h3>Stream Deck and scripts</h3>
+      <p>Run MuteDot with <code>--toggle</code>, <code>--mute</code> or <code>--unmute</code> to control it from a Stream Deck button or a script. <code>--status</code> prints <code>muted</code> or <code>live</code>.</p>
+
+      <div class="guide-cta">
+        <div><b>MuteDot is $6, paid once.</b><p>Windows 10/11 and Linux. 30-day money-back guarantee.</p></div>
+        <a class="btn" href="https://mutedot.lemonsqueezy.com/checkout/buy/5e4ba5b7-3cd9-493f-b8fe-c976cc8fae09">Buy MuteDot</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__brand">
+        <img src="../logo/svg/mutedot-lockup-color-on-dark.svg" alt="MuteDot" width="142" height="26">
+        <small>© 2026 Aubergine-UX and 523co</small>
+      </div>
+      <ul class="footer__links">
+        <li><a href="../windows/">Windows guide</a></li>
+        <li><a href="../linux/">Linux guide</a></li>
+        <li><a href="../privacy/">Privacy</a></li>
+        <li><a href="../terms/">Terms</a></li>
+        <li><a href="../refunds/">Refunds</a></li>
+        <li><a href="mailto:mail@armd.one">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

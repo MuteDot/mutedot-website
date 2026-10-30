@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mute your mic with a keyboard shortcut on Linux · MuteDot</title>
+  <meta name="description" content="Mute your microphone from the keyboard on Linux with pactl or wpctl, or mute every mic at once with MuteDot. Works on X11 and Wayland, in KDE and GNOME.">
+  <link rel="canonical" href="https://mutedot.xyz/linux/">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#110F14">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MuteDot">
+  <meta property="og:url" content="https://mutedot.xyz/linux/">
+  <meta property="og:title" content="Mute your mic with a keyboard shortcut on Linux">
+  <meta property="og:description" content="pactl and wpctl commands, KDE and GNOME shortcut setup, and how to mute every mic at once on X11 and Wayland.">
+  <meta property="og:image" content="https://mutedot.xyz/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav nav--light">
+    <div class="wrap">
+      <a class="nav__logo" href="../"><img src="../logo/svg/mutedot-lockup-color.svg" alt="MuteDot home" width="153" height="28"></a>
+      <nav aria-label="Main">
+        <ul class="nav__links">
+          <li><a href="../#features">Features</a></li>
+          <li><a href="../#pricing">Pricing</a></li>
+          <li><a href="../#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--sm" href="https://mutedot.lemonsqueezy.com/checkout/buy/5e4ba5b7-3cd9-493f-b8fe-c976cc8fae09">Buy MuteDot</a>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <article class="legal">
+      <h1>Mute your microphone with a keyboard shortcut on Linux</h1>
+      <p class="updated">For PulseAudio and PipeWire, on X11 and Wayland · Updated October 2026</p>
+      <p>Most Linux desktops don't give you one shortcut that mutes every microphone. This page shows how to mute from the command line, how to bind that to a key in KDE and GNOME, and how to mute every mic at once with MuteDot.</p>
+
+      <h2>Mute from the command line</h2>
+      <p>On PulseAudio, or PipeWire with <code>pipewire-pulse</code>:</p>
+      <pre><code>pactl set-source-mute @DEFAULT_SOURCE@ toggle</code></pre>
+      <p>On PipeWire with WirePlumber:</p>
+      <pre><code>wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle</code></pre>
+      <p>Both commands only mute your <em>default</em> microphone. If a call app is using a different one, like the mic in your webcam, it still hears you. They also give you no sign of whether you're muted, other than opening your sound settings.</p>
+
+      <h2>Bind a command to a key</h2>
+      <h3>KDE Plasma</h3>
+      <p>System Settings → Keyboard → Shortcuts → Add New → Command. Paste the command, then set the key.</p>
+      <h3>GNOME</h3>
+      <p>Settings → Keyboard → View and Customize Shortcuts → Custom Shortcuts. Add a shortcut, paste the command, then set the key.</p>
+
+      <h2>Mute every microphone with MuteDot</h2>
+      <p>MuteDot mutes every microphone at once through PulseAudio or PipeWire (it uses <code>pactl</code>, and falls back to <code>wpctl</code>). It keeps a small indicator on screen that's green with LIVE when your mic is on and red with MUTED when it's off, and plays a short chime when it changes.</p>
+      <p>It comes as a <code>.deb</code>, an <code>.rpm</code> and an AppImage.</p>
+
+      <h3>On X11</h3>
+      <p>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> to mute every mic, and again to go live. Right-click the indicator to open Settings, where you can change the shortcut and set a push-to-talk key: hold it to talk while muted, let go to mute again.</p>
+
+      <h3>On Wayland</h3>
+      <p>Wayland doesn't let apps listen for global shortcuts, so MuteDot can't grab the key itself. Instead, bind this command to a key using the KDE or GNOME steps above:</p>
+      <pre><code>mutedot --toggle</code></pre>
+      <p>MuteDot spots Wayland and shows the same steps, with a copy button for the command, at the top of its Settings window. The indicator still stays on top and remembers where you put it.</p>
+      <p>Push-to-talk isn't available on Wayland, because desktop shortcuts can run a command when a key is pressed but not when it's released.</p>
+
+      <h3>Scripts and status bars</h3>
+      <p>The same command can be used from scripts:</p>
+      <pre><code>mutedot --toggle     # mute or unmute
+mutedot --mute       # mute every mic
+mutedot --unmute     # unmute every mic
+mutedot --status     # prints "muted" or "live"</code></pre>
+      <p><code>--status</code> exits with 0 when muted and 1 when live, so you can use it in a Waybar or Polybar module. If MuteDot is already running, these commands go to it, so you still get the chime and the indicator updates.</p>
+
+      <div class="guide-cta">
+        <div><b>MuteDot is $6, paid once.</b><p>Linux and Windows 10/11. 30-day money-back guarantee.</p></div>
+        <a class="btn" href="https://mutedot.lemonsqueezy.com/checkout/buy/5e4ba5b7-3cd9-493f-b8fe-c976cc8fae09">Buy MuteDot</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__brand">
+        <img src="../logo/svg/mutedot-lockup-color-on-dark.svg" alt="MuteDot" width="142" height="26">
+        <small>© 2026 Aubergine-UX and 523co</small>
+      </div>
+      <ul class="footer__links">
+        <li><a href="../windows/">Windows guide</a></li>
+        <li><a href="../linux/">Linux guide</a></li>
+        <li><a href="../privacy/">Privacy</a></li>
+        <li><a href="../terms/">Terms</a></li>
+        <li><a href="../refunds/">Refunds</a></li>
+        <li><a href="mailto:mail@armd.one">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

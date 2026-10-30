@@ -28,10 +28,13 @@
 | Path | What it is |
 |---|---|
 | `index.html` | Landing page. The hero demo is pure CSS. |
+| `windows/` · `linux/` | Setup guides: how to mute your mic with a shortcut on each OS. They exist mostly for search. |
 | `privacy/` · `terms/` · `refunds/` | Legal pages |
 | `buy/index.html` | Short link (`mutedot.xyz/buy/`) that redirects to checkout |
 | `404.html` | Not-found page |
 | `css/site.css` | Every style on the site |
+| `fonts/` | Inter, Sora and JetBrains Mono (latin subset), served from the site so nothing loads from Google |
+| `robots.txt` · `sitemap.xml` | For search engines. Add new pages to the sitemap. |
 | `logo/svg/` | Lockups from the brand kit, unchanged |
 | `favicon.*` · `apple-touch-icon.png` · `icon-*.png` · `og-image.png` · `site.webmanifest` | Icons and social card |
 
@@ -78,11 +81,12 @@ No placeholders are left.
 | Domain | **mutedot.xyz** | `CNAME`, plus the canonical and Open Graph tags |
 | Checkout | [Lemon Squeezy](https://mutedot.lemonsqueezy.com/checkout/buy/5e4ba5b7-3cd9-493f-b8fe-c976cc8fae09) | Every Buy button, and the `buy/` redirect |
 
-If the checkout link changes, find and replace it across the folder.
+If the checkout link changes, find and replace it across the folder. It's also in the structured data in `index.html`.
+
+After the site is live, add `mutedot.xyz` to [Google Search Console](https://search.google.com/search-console) and submit `https://mutedot.xyz/sitemap.xml`.
 
 > [!WARNING]
-> `og-image.png`, along with the Product Hunt images in the brand kit, still says "macOS · Windows · Linux".
-> Re-export them without macOS before launch.
+> The Product Hunt images in the brand kit still say "macOS · Windows · Linux". Re-export them without macOS before posting.
 
 > [!NOTE]
 > The legal pages are plain-language starting points, not legal advice.
