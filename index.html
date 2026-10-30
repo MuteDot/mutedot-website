@@ -33,12 +33,6 @@
     <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3" fill="none"/><path d="M5 11a7 7 0 0 0 14 0" fill="none"/><path d="M12 18v3.5" fill="none"/></symbol>
     <symbol id="i-mic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3" fill="none"/><path d="M5 11a7 7 0 0 0 14 0" fill="none"/><path d="M12 18v3.5" fill="none"/><path d="M3.5 3.5l17 17" fill="none"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none"/></symbol>
-    <symbol id="i-ptt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3" fill="none"/><path d="M12 9.5v5" fill="none"/><path d="M9.5 12.5 12 15l2.5-2.5" fill="none"/></symbol>
-    <symbol id="i-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z" fill="none"/><path d="M15.5 9a4 4 0 0 1 0 6" fill="none"/><path d="M18 6.5a7.5 7.5 0 0 1 0 11" fill="none"/></symbol>
-    <symbol id="i-sync" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-14 5.3" fill="none"/><path d="M4 12a8 8 0 0 1 14-5.3" fill="none"/><path d="M18 3v4h-4" fill="none"/><path d="M6 21v-4h4" fill="none"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2.5" fill="none"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none"/></symbol>
-    <symbol id="i-tray" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3" fill="none"/><path d="M3 15.5h18" fill="none"/><circle cx="16.5" cy="17.8" r="1" fill="currentColor" stroke="none"/></symbol>
-    <symbol id="i-term" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3" fill="none"/><path d="m7.5 9.5 3 2.5-3 2.5" fill="none"/><path d="M12.5 15h4" fill="none"/></symbol>
   </svg>
 
   <header class="nav">
@@ -71,6 +65,7 @@
         <div class="stage">
           <p class="sr-only">Demo: the MuteDot indicator shows LIVE in green. Pressing Ctrl, Shift and M flips it to MUTED in red.</p>
           <div class="orb" aria-hidden="true"></div>
+          <div class="orb orb--ember" aria-hidden="true"></div>
           <div class="window" aria-hidden="true">
             <div class="window__bar"><div class="lights"><i></i><i></i><i></i></div><span class="window__title">MuteDot</span></div>
             <div class="demo">
@@ -123,21 +118,24 @@
           <h2 class="h2" id="live-title">Always know if you're <span class="hot">live.</span></h2>
           <p class="lead">A small indicator floats above every window. Green means they can hear you. Red means they can't. Pick the size that suits your screen.</p>
         </div>
+        <div class="stage styles-stage">
+        <div class="orb" aria-hidden="true"></div>
+        <div class="orb orb--ember" aria-hidden="true"></div>
         <div class="styles">
-          <article class="style-card">
+          <article class="style-card glass">
             <div class="style-card__show" aria-hidden="true">
-              <div class="dot-pair"><span class="ind-dot"></span><span class="ind-dot ind-dot--muted"></span></div>
+              <div class="dot-pair"><span class="ind-dot"><svg><use href="#i-mic"/></svg></span><span class="ind-dot ind-dot--muted"><svg><use href="#i-mic-off"/></svg></span></div>
             </div>
             <div><h3>Dot</h3><p>Just the dot. Quiet in a corner, obvious at a glance.</p></div>
           </article>
-          <article class="style-card">
+          <article class="style-card glass">
             <div class="style-card__show" aria-hidden="true">
               <span class="ind ind--sm ind--live"><span class="ind__icon"><svg><use href="#i-mic"/></svg></span>LIVE</span>
               <span class="ind ind--sm ind--muted"><span class="ind__icon"><svg><use href="#i-mic-off"/></svg></span>MUTED</span>
             </div>
             <div><h3>Pill</h3><p>The dot plus a word, so there's no second-guessing.</p></div>
           </article>
-          <article class="style-card">
+          <article class="style-card glass">
             <div class="style-card__show" aria-hidden="true">
               <span class="ind ind--lg ind--live"><span class="ind__icon"><svg><use href="#i-mic"/></svg></span>LIVE</span>
               <span class="ind ind--lg ind--muted"><span class="ind__icon"><svg><use href="#i-mic-off"/></svg></span>MUTED</span>
@@ -145,70 +143,79 @@
             <div><h3>Large</h3><p>A big badge for streams, podcasts and anyone who forgets.</p></div>
           </article>
         </div>
+        </div>
         <ul class="extras">
           <li>Drag it next to your webcam</li>
           <li>Lock it so clicks pass straight through</li>
           <li>Show it only while you're live</li>
           <li>Shows TALKING during push-to-talk</li>
+          <li>Click it to mute, right-click for Settings</li>
         </ul>
       </div>
     </section>
 
-    <!-- Features -->
+    <!-- Features: the real Settings window -->
     <section class="band band--orange" id="features" aria-labelledby="features-title">
-      <div class="wrap">
-        <div class="section-head">
-          <img class="features__logo" src="logo/svg/mutedot-lockup-ink-on-orange.svg" alt="MuteDot" width="186" height="34">
-          <h2 class="h2" id="features-title">Small app. No loose ends.</h2>
-          <p class="lead">Everything a mute button should have done in the first place.</p>
+      <div class="orb orb--ink" aria-hidden="true"></div>
+      <div class="wrap split split--settings">
+        <div class="split__copy">
+          <h2 class="h2" id="features-title">The whole app fits in one window.</h2>
+          <p>This is MuteDot's Settings window, every option in it. There's no account page and no upgrade tab.</p>
+          <p>Press the mute button on your headset or change it in system settings, and MuteDot catches up within half a second.</p>
+          <p>The rest lives in the system tray: your mic status, mute, show or lock the indicator, and Settings.</p>
+          <div class="window term" role="img" aria-label="Terminal: mutedot --status prints muted, mutedot --toggle flips it, then --status prints live">
+            <div class="window__bar"><div class="lights"><i></i><i></i><i></i></div><span class="window__title">Terminal</span></div>
+            <pre><span class="term__p">$</span> mutedot --status
+<span class="term__out">muted</span>
+<span class="term__p">$</span> mutedot --toggle
+<span class="term__p">$</span> mutedot --status
+<span class="term__out">live</span></pre>
+          </div>
+          <p class="term__note">There's also <code>--mute</code>, <code>--unmute</code> and <code>--settings</code>. Bind them to a Stream Deck button or a desktop shortcut.</p>
         </div>
-        <div class="grid6">
-          <article class="feature">
-            <svg aria-hidden="true"><use href="#i-ptt"/></svg>
-            <h3>Push-to-talk</h3>
-            <p>Hold a key to talk while muted. Let go and you're muted again.</p>
-          </article>
-          <article class="feature">
-            <svg aria-hidden="true"><use href="#i-sound"/></svg>
-            <h3>Sound cues</h3>
-            <p>A falling chime when you mute, a rising one when you're live. No looking required.</p>
-          </article>
-          <article class="feature">
-            <svg aria-hidden="true"><use href="#i-sync"/></svg>
-            <h3>Always in sync</h3>
-            <p>Press the mute button on your headset or flip it in system settings. MuteDot catches up within half a second.</p>
-          </article>
-          <article class="feature">
-            <svg aria-hidden="true"><use href="#i-lock"/></svg>
-            <h3>Click-through lock</h3>
-            <p>Lock the indicator and clicks pass straight through to whatever's underneath.</p>
-          </article>
-          <article class="feature">
-            <svg aria-hidden="true"><use href="#i-tray"/></svg>
-            <h3>Lives in your system tray</h3>
-            <p>Out of the way in the tray, and it starts when you log in.</p>
-          </article>
-          <article class="feature">
-            <svg aria-hidden="true"><use href="#i-term"/></svg>
-            <h3>Scriptable</h3>
-            <p><code>mutedot --toggle</code>, <code>--mute</code>, <code>--unmute</code> and <code>--status</code> for Stream Deck and custom shortcuts.</p>
-          </article>
+
+        <div class="window settings">
+          <div class="window__bar" aria-hidden="true"><div class="lights"><i></i><i></i><i></i></div><span class="window__title">MuteDot Settings</span></div>
+          <div class="settings__body">
+            <div class="settings__group">
+              <h3>Shortcuts</h3>
+              <div class="srow"><div><b>Mute / unmute</b><span>Works in every app, even when MuteDot is in the background.</span></div><span class="keys keys--sm" aria-label="Ctrl Shift M"><span class="key">Ctrl</span><span class="key">Shift</span><span class="key key--hot">M</span></span></div>
+              <div class="srow"><div><b>Push-to-talk</b><span>Hold to talk while muted. Release to mute again.</span></div><span class="keys keys--sm"><span class="key key--unset">Click to set</span></span></div>
+            </div>
+            <div class="settings__group">
+              <h3>Indicator</h3>
+              <div class="srow"><div><b>Show indicator</b></div><span class="switch on" role="img" aria-label="On"></span></div>
+              <div class="srow"><div><b>Only show when live</b><span>Hidden while muted. Appears the moment your mic is on.</span></div><span class="switch" role="img" aria-label="Off"></span></div>
+              <div class="srow"><div><b>Style</b></div><span class="seg" aria-label="Style: Pill"><span>Dot</span><span class="on">Pill</span><span>Large</span></span></div>
+              <div class="srow"><div><b>Lock position</b><span>Clicks pass straight through to the window underneath.</span></div><span class="switch" role="img" aria-label="Off"></span></div>
+              <div class="srow"><div><span>Drag the indicator anywhere. Click it to toggle. Right-click opens this window.</span></div><span class="ghost">Reset position</span></div>
+            </div>
+            <div class="settings__group">
+              <h3>General</h3>
+              <div class="srow"><div><b>Sound feedback</b><span>A short chime: falling when muted, rising when live.</span></div><span class="srow__end"><span class="ghost">Test</span><span class="switch on" role="img" aria-label="On"></span></span></div>
+              <div class="srow"><div><b>Launch at login</b></div><span class="switch" role="img" aria-label="Off"></span></div>
+            </div>
+          </div>
+          <p class="settings__foot"><span>MuteDot v0.1.0</span><span>Mutes every microphone, not just the default one.</span></p>
         </div>
-        <ul class="facts">
-          <li>About 5 MB</li>
-          <li>No account</li>
-          <li>No telemetry</li>
-          <li>No internet needed</li>
-        </ul>
       </div>
     </section>
 
     <!-- Works with everything -->
     <section class="band band--paper band--tight" aria-labelledby="works-title">
       <div class="wrap works">
-        <h2 class="h2" id="works-title">Works with everything.</h2>
-        <p class="works__apps">Zoom · Microsoft Teams · Google Meet · Discord · Slack · OBS · <span>and anything else that uses a mic.</span></p>
-        <p class="lead">It mutes the mic itself, so there's nothing for an app to ignore.</p>
+        <h2 class="h2" id="works-title">Works with every call app.</h2>
+        <div class="stage dock-stage">
+          <ul class="dock glass glass--light" aria-label="Apps MuteDot works with">
+            <li>Zoom</li>
+            <li>Microsoft Teams</li>
+            <li>Google Meet</li>
+            <li>Discord</li>
+            <li>Slack</li>
+            <li>OBS</li>
+          </ul>
+        </div>
+        <p class="lead">And anything else that records from a microphone. MuteDot mutes the mic itself, so there's nothing for an app to ignore.</p>
       </div>
     </section>
 
@@ -216,7 +223,7 @@
     <section class="band band--paper" id="pricing" aria-labelledby="pricing-title" data-flush>
       <div class="wrap">
         <div class="section-head section-head--center">
-          <h2 class="h2" id="pricing-title">$6. Once. <span class="hot">Yours.</span></h2>
+          <h2 class="h2" id="pricing-title">$6, paid once.</h2>
           <p class="lead">No subscription and no trial. The 30-day money-back guarantee has you covered instead.</p>
         </div>
         <div class="price stage">
@@ -244,8 +251,9 @@
     <section class="band band--paper" id="faq" aria-labelledby="faq-title" data-flush>
       <div class="wrap">
         <div class="section-head section-head--center">
-          <h2 class="h2" id="faq-title">Questions, answered.</h2>
+          <h2 class="h2" id="faq-title">Questions</h2>
         </div>
+        <div class="stage faq-stage">
         <div class="faq">
           <details>
             <summary>Does it work with Zoom, Teams, Meet and Discord?</summary>
@@ -275,6 +283,7 @@
             <summary>Is there a free trial?</summary>
             <p>No. The 30-day money-back guarantee covers you instead. If MuteDot isn't for you, you get your $6 back.</p>
           </details>
+        </div>
         </div>
       </div>
     </section>
