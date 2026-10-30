@@ -104,5 +104,5 @@ The favicon and 404 paths are root-relative (`/favicon.ico`), so a `username.git
 <br>
 
 <div align="center">
-<sub>© 2026 Aubergine-UX. All rights reserved.</sub>
+<sub>© 2026 Aubergine-UX and 523co. All rights reserved.</sub>
 </div>
