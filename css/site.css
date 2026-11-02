@@ -506,7 +506,7 @@ a { color: var(--link); text-underline-offset: 3px; }
 .footer__links a:hover { color: var(--orange); }
 /* Page-view count from hits.sh, drawn on the footer's own ink so only the number shows */
 .views { flex: 1 0 100%; display: flex; justify-content: flex-end; margin-top: -14px; }
-.views img { height: 18px; width: auto; opacity: .3; }
+.views img { height: 18px; width: auto; opacity: .55; }
 
 /* ---------- Legal pages ---------- */
 .legal { max-width: 720px; margin-inline: auto; padding-block: calc(72px + var(--nav-h)) 96px; }
