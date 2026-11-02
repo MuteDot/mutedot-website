@@ -79,7 +79,7 @@ No placeholders are left.
 | Setting | Value | Where |
 |---|---|---|
 | Domain | **mutedot.xyz** | `CNAME`, plus the canonical and Open Graph tags |
-| Checkout | [Lemon Squeezy](https://mutedot.lemonsqueezy.com/checkout/buy/5e4ba5b7-3cd9-493f-b8fe-c976cc8fae09) | Every Buy button, and the `buy/` redirect |
+| Checkout | [Gumroad](https://mutedotapp.gumroad.com/l/mutedot?wanted=true) | Every Buy button, and the `buy/` redirect |
 
 If the checkout link changes, find and replace it across the folder. It's also in the structured data in `index.html`.
 
