@@ -92,8 +92,6 @@ If the checkout link changes, find and replace it across the folder. It's also i
 
 After the site is live, add `mutedot.xyz` to [Google Search Console](https://search.google.com/search-console) and submit `https://mutedot.xyz/sitemap.xml`.
 
-> [!WARNING]
-> The Product Hunt images in the brand kit still say "macOS · Windows · Linux". Re-export them without macOS before posting.
 
 > [!NOTE]
 > The legal pages are plain-language starting points, not legal advice.
