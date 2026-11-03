@@ -487,6 +487,7 @@ a { color: var(--link); text-underline-offset: 3px; }
 .legal .steps pre { margin-top: 10px; }
 .shot-guide { margin: 16px 0 0; }
 .shot-guide img { display: block; width: 100%; max-width: 440px; height: auto; border-radius: 14px; box-shadow: 0 0 0 1px var(--line-light), 0 18px 40px -24px rgba(17, 15, 20, .45); }
+.shot-guide--wide img { max-width: 100%; }
 .ind-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 12px; }
 .ind-row img { height: auto; max-width: 100%; }
 .legal .note { margin-top: 14px; padding: 14px 16px; border-radius: 12px; background: rgba(255, 95, 21, .08); font-size: 16px; }
