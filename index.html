@@ -154,22 +154,23 @@
         <div class="orb orb--ember" aria-hidden="true"></div>
         <div class="styles">
           <article class="style-card glass">
-            <div class="style-card__show" aria-hidden="true">
-              <div class="dot-pair"><span class="ind-dot"><svg><use href="#i-mic"/></svg></span><span class="ind-dot ind-dot--muted"><svg><use href="#i-mic-off"/></svg></span></div>
+            <div class="style-card__show style-card__show--row">
+              <img src="img/indicator-dot-live.webp" width="77" height="77" loading="lazy" alt="Dot style, live: a green dot with a mic icon">
+              <img src="img/indicator-dot-muted.webp" width="77" height="77" loading="lazy" alt="Dot style, muted: a red dot with a crossed-out mic">
             </div>
             <div><h3>Dot</h3><p>A green or red dot with a mic icon. The smallest option.</p></div>
           </article>
           <article class="style-card glass">
-            <div class="style-card__show" aria-hidden="true">
-              <span class="ind ind--sm ind--live"><span class="ind__icon"><svg><use href="#i-mic"/></svg></span>LIVE</span>
-              <span class="ind ind--sm ind--muted"><span class="ind__icon"><svg><use href="#i-mic-off"/></svg></span>MUTED</span>
+            <div class="style-card__show">
+              <img src="img/indicator-pill-live.webp" width="172" height="84" loading="lazy" alt="Pill style showing LIVE in green">
+              <img src="img/indicator-pill-muted.webp" width="203" height="84" loading="lazy" alt="Pill style showing MUTED in red">
             </div>
             <div><h3>Pill</h3><p>The dot with LIVE or MUTED written next to it. This is the default.</p></div>
           </article>
           <article class="style-card glass">
-            <div class="style-card__show" aria-hidden="true">
-              <span class="ind ind--lg ind--live"><span class="ind__icon"><svg><use href="#i-mic"/></svg></span>LIVE</span>
-              <span class="ind ind--lg ind--muted"><span class="ind__icon"><svg><use href="#i-mic-off"/></svg></span>MUTED</span>
+            <div class="style-card__show">
+              <img src="img/indicator-large-live.webp" width="214" height="105" loading="lazy" alt="Large style showing LIVE in green">
+              <img src="img/indicator-large-muted.webp" width="253" height="105" loading="lazy" alt="Large style showing MUTED in red">
             </div>
             <div><h3>Large</h3><p>A larger version of the pill, easier to read from across a room or on a stream.</p></div>
           </article>
@@ -205,30 +206,9 @@
           <p class="term__note">There's also <code>--mute</code>, <code>--unmute</code> and <code>--settings</code>. Bind them to a Stream Deck button or a desktop shortcut.</p>
         </div>
 
-        <div class="window settings">
-          <div class="window__bar" aria-hidden="true"><div class="lights"><i></i><i></i><i></i></div><span class="window__title">MuteDot Settings</span></div>
-          <div class="settings__body">
-            <div class="settings__group">
-              <h3>Shortcuts</h3>
-              <div class="srow"><div><b>Mute / unmute</b><span>Works in every app, even when MuteDot is in the background.</span></div><span class="keys keys--sm" aria-label="Ctrl Shift M"><span class="key">Ctrl</span><span class="key">Shift</span><span class="key key--hot">M</span></span></div>
-              <div class="srow"><div><b>Push-to-talk</b><span>Hold to talk while muted. Release to mute again.</span></div><span class="keys keys--sm"><span class="key key--unset">Click to set</span></span></div>
-            </div>
-            <div class="settings__group">
-              <h3>Indicator</h3>
-              <div class="srow"><div><b>Show indicator</b></div><span class="switch on" role="img" aria-label="On"></span></div>
-              <div class="srow"><div><b>Only show when live</b><span>Hidden while muted. Appears the moment your mic is on.</span></div><span class="switch" role="img" aria-label="Off"></span></div>
-              <div class="srow"><div><b>Style</b></div><span class="seg" aria-label="Style: Pill"><span>Dot</span><span class="on">Pill</span><span>Large</span></span></div>
-              <div class="srow"><div><b>Lock position</b><span>Clicks pass straight through to the window underneath.</span></div><span class="switch" role="img" aria-label="Off"></span></div>
-              <div class="srow"><div><span>Drag the indicator anywhere. Click it to toggle. Right-click opens this window.</span></div><span class="ghost">Reset position</span></div>
-            </div>
-            <div class="settings__group">
-              <h3>General</h3>
-              <div class="srow"><div><b>Sound feedback</b><span>A short chime: falling when muted, rising when live.</span></div><span class="srow__end"><span class="ghost">Test</span><span class="switch on" role="img" aria-label="On"></span></span></div>
-              <div class="srow"><div><b>Launch at login</b></div><span class="switch" role="img" aria-label="Off"></span></div>
-            </div>
-          </div>
-          <p class="settings__foot"><span>MuteDot v0.1.0</span><span>Mutes every microphone, not just the default one.</span></p>
-        </div>
+        <figure class="shot">
+          <img src="img/settings.webp" width="440" height="967" loading="lazy" alt="MuteDot's Settings window in dark mode. At the top it says You're muted, every microphone is silenced, and that it's controlling 3 microphones. Below are the Shortcuts, Indicator and General sections with the default settings: Ctrl Shift M to mute, the Pill style, and sound feedback on.">
+        </figure>
       </div>
     </section>
 

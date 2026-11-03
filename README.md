@@ -33,6 +33,7 @@
 | `buy/index.html` | Short link (`mutedot.xyz/buy/`) that redirects to checkout |
 | `404.html` | Not-found page |
 | `css/site.css` | Every style on the site |
+| `img/` | Screenshots of the app's Settings window and indicator, made by `brand/screenshots.py` in the app repo |
 | `fonts/` | Inter, Sora and JetBrains Mono (latin subset), served from the site so nothing loads from Google |
 | `robots.txt` · `sitemap.xml` | For search engines. Add new pages to the sitemap. |
 | `logo/svg/` | Lockups from the brand kit, unchanged |
@@ -45,11 +46,17 @@
 The site uses the brand kit's bold blocks of **Ink**, **Paper** and **Hot Orange**, plus macOS-style liquid glass:
 a floating capsule nav, and frosted windows with lit rims sitting over solid orange dots taken from the logo.
 
-<img src=".github/readme/settings.png" alt="The features section: a glass copy of MuteDot's Settings window with Shortcuts, Indicator and General options, beside a glass terminal running mutedot --status and --toggle" width="800">
+<img src=".github/readme/settings.png" alt="The features section: a screenshot of MuteDot's real Settings window in dark mode, beside a glass terminal running mutedot --status and --toggle" width="800">
 
-The Settings window and the terminal on the page copy the real app. They use the same rows,
-hints and defaults as the app's Settings window, and the same CLI flags.
-**If the app's settings change, update this section too.**
+The Settings window and the indicator styles are real renders of the app's UI, in `img/`.
+They come from the app repo's `brand/screenshots.py`, which loads `src/settings.html` and
+`src/dot.html` in headless Chromium with sample data (nothing on your machine gets muted):
+
+```bash
+cd ../mutedot && python3 brand/screenshots.py ../website/img
+```
+
+**If the app's UI changes, rerun it.** The hero demo and the terminal are drawn in CSS; the terminal uses the app's real CLI flags.
 
 <details>
 <summary><b>Brand tokens</b></summary>
