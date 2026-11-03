@@ -41,15 +41,96 @@
   <main id="main" class="wrap">
     <article class="legal">
       <h1>Mute your microphone with a keyboard shortcut on Windows</h1>
-      <p class="updated">For Windows 10 and 11 · Updated October 2026</p>
-      <p>Windows doesn't come with a shortcut that mutes your microphone everywhere. This page covers what Windows does have, the shortcuts built into the common call apps, and how to mute every microphone on your PC with one key.</p>
+      <p class="updated">For Windows 10 and 11 · Updated November 2026</p>
+      <p>Windows doesn't have one key that mutes every microphone. This guide shows how to set that up with MuteDot in a couple of minutes, and what Windows and your call apps can do on their own.</p>
 
-      <h2>What Windows has built in</h2>
+      <div class="tldr">
+        <b>Short answer</b>
+        <p>Install MuteDot, then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>. Every microphone on your PC is muted, in every app, and a small red MUTED sign stays on screen until you press it again.</p>
+      </div>
+
+      <ul class="toc" aria-label="On this page">
+        <li><a href="#setup">Set up MuteDot</a></li>
+        <li><a href="#shortcut">Change the shortcut</a></li>
+        <li><a href="#push-to-talk">Push-to-talk</a></li>
+        <li><a href="#startup">Start with Windows</a></li>
+        <li><a href="#without">Without MuteDot</a></li>
+        <li><a href="#help">If something's wrong</a></li>
+      </ul>
+
+      <h2 id="setup">Set up MuteDot</h2>
+      <ol class="steps">
+        <li>
+          <b>Install it</b>
+          <p>After you buy, Gumroad emails you a download link. Download the Windows installer (the file ending in <code>-setup.exe</code>) and open it.</p>
+          <p>If Windows shows "Windows protected your PC", click <b>More info</b>, then <b>Run anyway</b>.</p>
+        </li>
+        <li>
+          <b>Find the sign at the top of your screen</b>
+          <p>MuteDot starts straight away and puts a small sign at the top middle of your screen, just under where a webcam usually sits. Green with LIVE means people can hear you.</p>
+          <div class="ind-row"><img src="../img/indicator-pill-live.webp" width="147" height="72" loading="lazy" alt="The MuteDot sign: a green mic icon with LIVE"></div>
+        </li>
+        <li>
+          <b>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> to mute</b>
+          <p>The sign turns red and says MUTED, and you hear a short falling chime. Every microphone is now off, in every app.</p>
+          <div class="ind-row"><img src="../img/indicator-pill-muted.webp" width="174" height="72" loading="lazy" alt="The MuteDot sign: a red crossed-out mic with MUTED"></div>
+        </li>
+        <li>
+          <b>Press it again to unmute</b>
+          <p>The sign turns green again and the chime rises.</p>
+        </li>
+      </ol>
+      <p>Want to see which microphones MuteDot controls? Right-click the sign to open Settings. The list is at the top.</p>
+      <figure class="shot-guide"><img src="../img/guide-status.webp" width="440" height="166" loading="lazy" alt="Top of MuteDot's Settings: You're muted, every microphone is silenced. Controlling 3 microphones: Built-in Microphone, USB Headset, Webcam Microphone."></figure>
+
+      <h2 id="shortcut">Change the shortcut</h2>
+      <ol class="steps">
+        <li>
+          <b>Open Settings</b>
+          <p>Right-click the sign. You can also right-click the MuteDot icon near the clock and choose <b>Settings…</b> (you may need to click the <b>^</b> arrow to see it).</p>
+        </li>
+        <li>
+          <b>Click the current shortcut</b>
+          <p>It's under Shortcuts, next to Mute / unmute.</p>
+          <figure class="shot-guide"><img src="../img/guide-shortcut.webp" width="440" height="225" loading="lazy" alt="The Shortcuts section of Settings, with the Ctrl + Shift + M box outlined"></figure>
+        </li>
+        <li>
+          <b>Press the keys you want</b>
+          <p>The box says "Press keys…" while it waits. Press your new combination and it saves straight away. Press <kbd>Esc</kbd> to cancel.</p>
+          <figure class="shot-guide"><img src="../img/guide-shortcut-recording.webp" width="440" height="241" loading="lazy" alt="The shortcut box now reads Press keys… (Esc cancels)"></figure>
+        </li>
+      </ol>
+      <p class="note">Letters, numbers and Space need <kbd>Ctrl</kbd>, <kbd>Alt</kbd> or <kbd>Shift</kbd> with them, so you can't mute yourself by accident while typing. Keys like <kbd>F9</kbd> or <kbd>Pause</kbd> work on their own.</p>
+
+      <h2 id="push-to-talk">Use push-to-talk</h2>
+      <p>Push-to-talk keeps you muted and lets you talk only while you hold a key, like a walkie-talkie.</p>
+      <ol class="steps">
+        <li>
+          <b>Pick a key</b>
+          <p>In Settings, click <b>Click to set</b> next to Push-to-talk, then press the key you want to hold. <kbd>F9</kbd> is a good choice because you don't use it for typing.</p>
+          <figure class="shot-guide"><img src="../img/guide-ptt.webp" width="440" height="225" loading="lazy" alt="The Shortcuts section with Push-to-talk set to F9, outlined"></figure>
+        </li>
+        <li>
+          <b>Mute, then hold the key to talk</b>
+          <p>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> to mute. Hold your push-to-talk key whenever you want to speak. The sign says TALKING while you hold it, and you're muted again as soon as you let go.</p>
+          <div class="ind-row"><img src="../img/indicator-pill-talking.webp" width="191" height="72" loading="lazy" alt="The MuteDot sign: a green mic icon with TALKING"></div>
+        </li>
+      </ol>
+      <p>To turn push-to-talk off, click its box and press <kbd>Backspace</kbd>.</p>
+
+      <h2 id="startup">Start MuteDot with Windows</h2>
+      <p>In Settings, under General, turn on <b>Launch at login</b>. MuteDot then starts every time you sign in, so it's ready before your first call.</p>
+      <figure class="shot-guide"><img src="../img/guide-login.webp" width="440" height="193" loading="lazy" alt="The General section of Settings with the Launch at login switch turned on and outlined"></figure>
+
+      <h2 id="scripts">Stream Deck and scripts</h2>
+      <p>Run MuteDot with <code>--toggle</code>, <code>--mute</code> or <code>--unmute</code> to control it from a Stream Deck button or a script. <code>--status</code> prints <code>muted</code> or <code>live</code>.</p>
+
+      <h2 id="without">Without MuteDot</h2>
+      <h3>Windows 11's shortcut</h3>
       <p>Windows 11 has <kbd>Win</kbd> + <kbd>Alt</kbd> + <kbd>K</kbd>. It only works in call apps that support it, such as Microsoft Teams, and only while you're in a call. Windows 10 has no mute shortcut at all.</p>
-      <p>You can also turn microphone access off in Settings, under Privacy &amp; security → Microphone on Windows 11, or Privacy → Microphone on Windows 10. That takes several clicks each time, and it's easy to forget to turn it back on before your next call.</p>
-
-      <h2>Mute shortcuts in call apps</h2>
-      <p>Each call app has its own shortcut:</p>
+      <h3>Turning the microphone off in Settings</h3>
+      <p>You can switch microphone access off under Settings → Privacy &amp; security → Microphone on Windows 11, or Settings → Privacy → Microphone on Windows 10. It takes several clicks each time, and it's easy to forget to turn it back on before your next call.</p>
+      <h3>Each call app's own shortcut</h3>
       <div class="table">
         <table>
           <thead><tr><th>App</th><th>Mute / unmute</th></tr></thead>
@@ -62,29 +143,20 @@
           </tbody>
         </table>
       </div>
-      <p>These have three problems. They're all different. Most only work while that app's window is in front. And each one only mutes you in that app, so if another app is also using your mic, it still hears you.</p>
+      <p>The catch with these:</p>
+      <ul>
+        <li>Every app uses a different key.</li>
+        <li>Most only work while that app's window is in front.</li>
+        <li>Each one only mutes you in that app. If another app is also using your mic, it still hears you.</li>
+      </ul>
 
-      <h2>Mute every microphone with one shortcut</h2>
-      <p>MuteDot mutes the microphones themselves instead of muting you inside one app. It uses the same per-device mute switch as the Windows sound settings, and flips it on every microphone at once: the built-in mic, a USB or Bluetooth headset, and the mic in your webcam. Every app then gets silence.</p>
-      <ol>
-        <li>Buy MuteDot, download the Windows installer and run it.</li>
-        <li>MuteDot starts in the system tray and puts a small indicator on screen. It's green with LIVE when your mic is on.</li>
-        <li>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>. Every mic is muted, the indicator turns red with MUTED, and you hear a short chime.</li>
-        <li>Press it again to go live.</li>
-      </ol>
-      <p>MuteDot also notices when something else changes the mute state, like the mute button on your headset or the Windows sound settings, and updates the indicator within half a second.</p>
-
-      <h3>Change the shortcut</h3>
-      <p>Right-click the indicator to open Settings. Under Shortcuts, click the current shortcut and press the keys you want. Letter, number and space keys need Ctrl, Alt or Shift with them. Keys like F9 or Pause can be used on their own.</p>
-
-      <h3>Push-to-talk</h3>
-      <p>In the same section, set a push-to-talk key. Hold it to talk while you're muted, and let go to mute again. The indicator shows TALKING while you hold it.</p>
-
-      <h3>Start it with Windows</h3>
-      <p>Turn on Launch at login under General, so MuteDot is running before your first call of the day.</p>
-
-      <h3>Stream Deck and scripts</h3>
-      <p>Run MuteDot with <code>--toggle</code>, <code>--mute</code> or <code>--unmute</code> to control it from a Stream Deck button or a script. <code>--status</code> prints <code>muted</code> or <code>live</code>.</p>
+      <h2 id="help">If something's not working</h2>
+      <h3>Settings says the shortcut is unavailable</h3>
+      <p>Another app is already using that key combination. Pick a different one, as shown in <a href="#shortcut">Change the shortcut</a>.</p>
+      <h3>I can't see the sign</h3>
+      <p>Open Settings from the MuteDot icon near the clock and check that <b>Show indicator</b> is on. If <b>Only show when live</b> is on, the sign hides while you're muted, which is expected. If it's somewhere off screen, click <b>Reset position</b>.</p>
+      <h3>My call app says I'm unmuted</h3>
+      <p>Your call app's mute button doesn't know about MuteDot, so it can say you're unmuted while MuteDot has the microphone muted. Nothing gets through. Go by the MuteDot sign.</p>
 
       <div class="guide-cta">
         <div><b>MuteDot is $6, paid once.</b><p>Windows 10/11 and Linux. 30-day money-back guarantee.</p></div>

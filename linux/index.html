@@ -41,42 +41,146 @@
   <main id="main" class="wrap">
     <article class="legal">
       <h1>Mute your microphone with a keyboard shortcut on Linux</h1>
-      <p class="updated">For PulseAudio and PipeWire, on X11 and Wayland · Updated October 2026</p>
-      <p>Most Linux desktops don't give you one shortcut that mutes every microphone. This page shows how to mute from the command line, how to bind that to a key in KDE and GNOME, and how to mute every mic at once with MuteDot.</p>
+      <p class="updated">For PulseAudio and PipeWire, on X11 and Wayland · Updated November 2026</p>
+      <p>Most Linux desktops don't give you one key that mutes every microphone. This guide shows how to set that up with MuteDot on X11 or Wayland, in KDE Plasma or GNOME, and how to do a simpler version with a single command.</p>
 
-      <h2>Mute from the command line</h2>
-      <p>On PulseAudio, or PipeWire with <code>pipewire-pulse</code>:</p>
-      <pre><code>pactl set-source-mute @DEFAULT_SOURCE@ toggle</code></pre>
-      <p>On PipeWire with WirePlumber:</p>
-      <pre><code>wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle</code></pre>
-      <p>Both commands only mute your <em>default</em> microphone. If a call app is using a different one, like the mic in your webcam, it still hears you. They also give you no sign of whether you're muted, other than opening your sound settings.</p>
+      <div class="tldr">
+        <b>Short answer</b>
+        <p>Install MuteDot. On X11, press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>. On Wayland, add a keyboard shortcut in your desktop's settings that runs the command MuteDot shows you. Either way, every microphone is muted and a small red MUTED sign stays on screen.</p>
+      </div>
 
-      <h2>Bind a command to a key</h2>
-      <h3>KDE Plasma</h3>
-      <p>System Settings → Keyboard → Shortcuts → Add New → Command. Paste the command, then set the key.</p>
-      <h3>GNOME</h3>
-      <p>Settings → Keyboard → View and Customize Shortcuts → Custom Shortcuts. Add a shortcut, paste the command, then set the key.</p>
+      <ul class="toc" aria-label="On this page">
+        <li><a href="#install">Install</a></li>
+        <li><a href="#session">X11 or Wayland?</a></li>
+        <li><a href="#x11">Set up on X11</a></li>
+        <li><a href="#wayland">Set up on Wayland</a></li>
+        <li><a href="#push-to-talk">Push-to-talk</a></li>
+        <li><a href="#startup">Start at login</a></li>
+        <li><a href="#without">Without MuteDot</a></li>
+        <li><a href="#help">If something's wrong</a></li>
+      </ul>
 
-      <h2>Mute every microphone with MuteDot</h2>
-      <p>MuteDot mutes every microphone at once through PulseAudio or PipeWire (it uses <code>pactl</code>, and falls back to <code>wpctl</code>). It keeps a small indicator on screen that's green with LIVE when your mic is on and red with MUTED when it's off, and plays a short chime when it changes.</p>
-      <p>It comes as a <code>.deb</code>, an <code>.rpm</code> and an AppImage.</p>
+      <h2 id="install">Install MuteDot</h2>
+      <p>After you buy, Gumroad emails you a download link. Download the file for your system, open a terminal in the folder you saved it to (usually <code>cd ~/Downloads</code>), and run the install command:</p>
+      <div class="table">
+        <table>
+          <thead><tr><th>Your system</th><th>Download</th><th>Install with</th></tr></thead>
+          <tbody>
+            <tr><td>Ubuntu, Debian, Linux Mint, Pop!_OS</td><td><code>.deb</code></td><td><code>sudo apt install ./MuteDot_*.deb</code></td></tr>
+            <tr><td>Fedora</td><td><code>.rpm</code></td><td><code>sudo dnf install ./MuteDot-*.rpm</code></td></tr>
+            <tr><td>Anything else, like Arch</td><td><code>.AppImage</code></td><td><code>chmod +x MuteDot_*.AppImage</code>, then run it</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Then open MuteDot from your app menu. It works with PulseAudio and PipeWire, so almost any current desktop is fine.</p>
 
-      <h3>On X11</h3>
-      <p>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> to mute every mic, and again to go live. Right-click the indicator to open Settings, where you can change the shortcut and set a push-to-talk key: hold it to talk while muted, let go to mute again.</p>
+      <h2 id="session">X11 or Wayland?</h2>
+      <p>The setup is slightly different on each. To check which one you're using, run:</p>
+      <pre><code>echo $XDG_SESSION_TYPE</code></pre>
+      <p>It prints <code>x11</code> or <code>wayland</code>. Recent versions of Ubuntu, Fedora and KDE Plasma use Wayland by default.</p>
 
-      <h3>On Wayland</h3>
-      <p>Wayland doesn't let apps listen for global shortcuts, so MuteDot can't grab the key itself. Instead, bind this command to a key using the KDE or GNOME steps above:</p>
-      <pre><code>mutedot --toggle</code></pre>
-      <p>MuteDot spots Wayland and shows the same steps, with a copy button for the command, at the top of its Settings window. The indicator still stays on top and remembers where you put it.</p>
-      <p>Push-to-talk isn't available on Wayland, because desktop shortcuts can run a command when a key is pressed but not when it's released.</p>
+      <h2 id="x11">Set up on X11</h2>
+      <ol class="steps">
+        <li>
+          <b>Find the sign at the top of your screen</b>
+          <p>MuteDot puts a small sign at the top middle of your screen, just under where a webcam usually sits. Green with LIVE means people can hear you.</p>
+          <div class="ind-row"><img src="../img/indicator-pill-live.webp" width="147" height="72" loading="lazy" alt="The MuteDot sign: a green mic icon with LIVE"></div>
+        </li>
+        <li>
+          <b>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> to mute</b>
+          <p>The sign turns red and says MUTED, and you hear a short falling chime. Every microphone is now off, in every app.</p>
+          <div class="ind-row"><img src="../img/indicator-pill-muted.webp" width="174" height="72" loading="lazy" alt="The MuteDot sign: a red crossed-out mic with MUTED"></div>
+        </li>
+        <li>
+          <b>Press it again to unmute</b>
+          <p>The sign turns green again and the chime rises.</p>
+        </li>
+      </ol>
+      <h3>Change the shortcut</h3>
+      <ol class="steps">
+        <li>
+          <b>Right-click the sign to open Settings</b>
+          <p>Under Shortcuts, click the box that says Ctrl + Shift + M.</p>
+          <figure class="shot-guide"><img src="../img/guide-shortcut.webp" width="440" height="225" loading="lazy" alt="The Shortcuts section of Settings, with the Ctrl + Shift + M box outlined"></figure>
+        </li>
+        <li>
+          <b>Press the keys you want</b>
+          <p>The box says "Press keys…" while it waits. Press your new combination and it saves straight away. Press <kbd>Esc</kbd> to cancel.</p>
+          <figure class="shot-guide"><img src="../img/guide-shortcut-recording.webp" width="440" height="241" loading="lazy" alt="The shortcut box now reads Press keys… (Esc cancels)"></figure>
+        </li>
+      </ol>
+      <p class="note">Letters, numbers and Space need <kbd>Ctrl</kbd>, <kbd>Alt</kbd> or <kbd>Shift</kbd> with them, so you can't mute yourself by accident while typing. Keys like <kbd>F9</kbd> or <kbd>Pause</kbd> work on their own.</p>
 
-      <h3>Scripts and status bars</h3>
-      <p>The same command can be used from scripts:</p>
+      <h2 id="wayland">Set up on Wayland</h2>
+      <p>Wayland doesn't let apps listen for keyboard shortcuts in the background. So instead, you add the shortcut in your desktop's own settings, and it runs MuteDot for you.</p>
+      <ol class="steps">
+        <li>
+          <b>Copy MuteDot's command</b>
+          <p>Right-click the sign to open Settings. MuteDot notices you're on Wayland and shows a yellow box at the top. Click <b>Copy</b>.</p>
+          <figure class="shot-guide"><img src="../img/guide-wayland.webp" width="440" height="231" loading="lazy" alt="The yellow One extra step on Wayland box in Settings, with the command /usr/bin/mutedot --toggle and a Copy button, outlined"></figure>
+        </li>
+        <li>
+          <b>Add a shortcut that runs it</b>
+          <p><b>KDE Plasma:</b> open System Settings → Keyboard → Shortcuts. Click <b>Add New</b>, choose the command option, and paste the command. Then set the key, for example <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>.</p>
+          <p><b>GNOME:</b> open Settings → Keyboard → View and Customize Shortcuts → Custom Shortcuts, and click <b>Add Shortcut</b>. Give it a name like "Mute mic", paste the command, and set the key.</p>
+        </li>
+        <li>
+          <b>Press your new shortcut</b>
+          <p>The sign turns red and says MUTED. Press it again to unmute.</p>
+          <div class="ind-row"><img src="../img/indicator-pill-muted.webp" width="174" height="72" loading="lazy" alt="The MuteDot sign: a red crossed-out mic with MUTED"></div>
+        </li>
+      </ol>
+      <p class="note">Push-to-talk isn't available on Wayland. Desktop shortcuts can run a command when you press a key, but not when you let go of it.</p>
+
+      <h2 id="push-to-talk">Use push-to-talk (X11)</h2>
+      <p>Push-to-talk keeps you muted and lets you talk only while you hold a key, like a walkie-talkie.</p>
+      <ol class="steps">
+        <li>
+          <b>Pick a key</b>
+          <p>In Settings, click <b>Click to set</b> next to Push-to-talk, then press the key you want to hold. <kbd>F9</kbd> is a good choice because you don't use it for typing.</p>
+          <figure class="shot-guide"><img src="../img/guide-ptt.webp" width="440" height="225" loading="lazy" alt="The Shortcuts section with Push-to-talk set to F9, outlined"></figure>
+        </li>
+        <li>
+          <b>Mute, then hold the key to talk</b>
+          <p>The sign says TALKING while you hold it, and you're muted again as soon as you let go.</p>
+          <div class="ind-row"><img src="../img/indicator-pill-talking.webp" width="191" height="72" loading="lazy" alt="The MuteDot sign: a green mic icon with TALKING"></div>
+        </li>
+      </ol>
+      <p>To turn push-to-talk off, click its box and press <kbd>Backspace</kbd>.</p>
+
+      <h2 id="startup">Start MuteDot at login</h2>
+      <p>In Settings, under General, turn on <b>Launch at login</b>, so MuteDot is running before your first call.</p>
+      <figure class="shot-guide"><img src="../img/guide-login.webp" width="440" height="193" loading="lazy" alt="The General section of Settings with the Launch at login switch turned on and outlined"></figure>
+
+      <h2 id="scripts">Scripts and status bars</h2>
       <pre><code>mutedot --toggle     # mute or unmute
 mutedot --mute       # mute every mic
 mutedot --unmute     # unmute every mic
 mutedot --status     # prints "muted" or "live"</code></pre>
-      <p><code>--status</code> exits with 0 when muted and 1 when live, so you can use it in a Waybar or Polybar module. If MuteDot is already running, these commands go to it, so you still get the chime and the indicator updates.</p>
+      <p><code>--status</code> exits with 0 when muted and 1 when live, so you can use it in a Waybar or Polybar module. If MuteDot is already running, these commands go to it, so you still get the chime and the sign updates.</p>
+
+      <h2 id="without">Without MuteDot</h2>
+      <p>You can mute your <em>default</em> microphone with one command, and bind it to a key the same way as in the Wayland steps above.</p>
+      <p>On PulseAudio, or PipeWire with <code>pipewire-pulse</code>:</p>
+      <pre><code>pactl set-source-mute @DEFAULT_SOURCE@ toggle</code></pre>
+      <p>On PipeWire with WirePlumber:</p>
+      <pre><code>wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle</code></pre>
+      <p>The catch with these:</p>
+      <ul>
+        <li>They only mute the default mic. If a call app is using a different one, like the mic in your webcam, it still hears you.</li>
+        <li>Nothing on screen tells you whether you're muted.</li>
+      </ul>
+
+      <h2 id="help">If something's not working</h2>
+      <h3>Settings says the shortcut is unavailable (X11)</h3>
+      <p>Another app is already using that key combination. Pick a different one, as shown in <a href="#x11">Set up on X11</a>.</p>
+      <h3>My Wayland shortcut does nothing</h3>
+      <p>Paste the command into a terminal and run it. If the sign changes, the command is fine and the problem is the shortcut in your desktop's settings. Check it was saved with the whole command.</p>
+      <h3>I can't see the sign</h3>
+      <p>Open Settings and check that <b>Show indicator</b> is on. If <b>Only show when live</b> is on, the sign hides while you're muted, which is expected. If it's somewhere off screen, click <b>Reset position</b>.</p>
+      <p>You can open Settings from the MuteDot icon in your panel. GNOME only shows panel icons with the AppIndicator extension, which Ubuntu includes. Without it, run <code>mutedot --settings</code>.</p>
+      <h3>My call app says I'm unmuted</h3>
+      <p>Your call app's mute button doesn't know about MuteDot, so it can say you're unmuted while MuteDot has the microphone muted. Nothing gets through. Go by the MuteDot sign.</p>
 
       <div class="guide-cta">
         <div><b>MuteDot is $6, paid once.</b><p>Linux and Windows 10/11. 30-day money-back guarantee.</p></div>
